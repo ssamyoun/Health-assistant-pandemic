@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D24A2C424D8C16F004CF24C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D24A2C324D8C16F004CF24C /* AppDelegate.swift */; };
+		2D24A2C624D8C16F004CF24C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D24A2C524D8C16F004CF24C /* ViewController.swift */; };
+		2D24A2C924D8C16F004CF24C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D24A2C724D8C16F004CF24C /* Main.storyboard */; };
+		2D24A2CB24D8C172004CF24C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D24A2CA24D8C172004CF24C /* Assets.xcassets */; };
+		2D24A2CE24D8C172004CF24C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D24A2CC24D8C172004CF24C /* LaunchScreen.storyboard */; };
+		2D24A2D324D8C173004CF24C /* WatchPandemic WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2D24A2D224D8C173004CF24C /* WatchPandemic WatchKit App.app */; };
+		2D24A2D924D8C173004CF24C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D24A2D724D8C173004CF24C /* Interface.storyboard */; };
+		2D24A2DB24D8C173004CF24C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D24A2DA24D8C173004CF24C /* Assets.xcassets */; };
+		2D24A2E224D8C173004CF24C /* WatchPandemic WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2D24A2E124D8C173004CF24C /* WatchPandemic WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2D24A2E724D8C173004CF24C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D24A2E624D8C173004CF24C /* InterfaceController.swift */; };
+		2D24A2E924D8C173004CF24C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D24A2E824D8C173004CF24C /* ExtensionDelegate.swift */; };
+		2D24A2EB24D8C173004CF24C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D24A2EA24D8C173004CF24C /* NotificationController.swift */; };
+		2D24A2ED24D8C174004CF24C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D24A2EC24D8C174004CF24C /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D24A2D424D8C173004CF24C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D24A2B824D8C16F004CF24C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D24A2D124D8C173004CF24C;
+			remoteInfo = "WatchPandemic WatchKit App";
+		};
+		2D24A2E324D8C173004CF24C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D24A2B824D8C16F004CF24C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D24A2E024D8C173004CF24C;
+			remoteInfo = "WatchPandemic WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2D24A2F524D8C174004CF24C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2D24A2E224D8C173004CF24C /* WatchPandemic WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D24A2F924D8C174004CF24C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				2D24A2D324D8C173004CF24C /* WatchPandemic WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2D24A2C024D8C16F004CF24C /* WatchPandemic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchPandemic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D24A2C324D8C16F004CF24C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2D24A2C524D8C16F004CF24C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2D24A2C824D8C16F004CF24C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2D24A2CA24D8C172004CF24C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D24A2CD24D8C172004CF24C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2D24A2CF24D8C172004CF24C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D24A2D224D8C173004CF24C /* WatchPandemic WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchPandemic WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D24A2D824D8C173004CF24C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		2D24A2DA24D8C173004CF24C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D24A2DC24D8C173004CF24C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D24A2E124D8C173004CF24C /* WatchPandemic WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchPandemic WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D24A2E624D8C173004CF24C /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		2D24A2E824D8C173004CF24C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		2D24A2EA24D8C173004CF24C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		2D24A2EC24D8C174004CF24C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D24A2EE24D8C174004CF24C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D24A2EF24D8C174004CF24C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D24A2BD24D8C16F004CF24C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D24A2DE24D8C173004CF24C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D24A2B724D8C16F004CF24C = {
+			isa = PBXGroup;
+			children = (
+				2D24A2C224D8C16F004CF24C /* WatchPandemic */,
+				2D24A2D624D8C173004CF24C /* WatchPandemic WatchKit App */,
+				2D24A2E524D8C173004CF24C /* WatchPandemic WatchKit Extension */,
+				2D24A2C124D8C16F004CF24C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D24A2C124D8C16F004CF24C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D24A2C024D8C16F004CF24C /* WatchPandemic.app */,
+				2D24A2D224D8C173004CF24C /* WatchPandemic WatchKit App.app */,
+				2D24A2E124D8C173004CF24C /* WatchPandemic WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D24A2C224D8C16F004CF24C /* WatchPandemic */ = {
+			isa = PBXGroup;
+			children = (
+				2D24A2C324D8C16F004CF24C /* AppDelegate.swift */,
+				2D24A2C524D8C16F004CF24C /* ViewController.swift */,
+				2D24A2C724D8C16F004CF24C /* Main.storyboard */,
+				2D24A2CA24D8C172004CF24C /* Assets.xcassets */,
+				2D24A2CC24D8C172004CF24C /* LaunchScreen.storyboard */,
+				2D24A2CF24D8C172004CF24C /* Info.plist */,
+			);
+			path = WatchPandemic;
+			sourceTree = "<group>";
+		};
+		2D24A2D624D8C173004CF24C /* WatchPandemic WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				2D24A2D724D8C173004CF24C /* Interface.storyboard */,
+				2D24A2DA24D8C173004CF24C /* Assets.xcassets */,
+				2D24A2DC24D8C173004CF24C /* Info.plist */,
+			);
+			path = "WatchPandemic WatchKit App";
+			sourceTree = "<group>";
+		};
+		2D24A2E524D8C173004CF24C /* WatchPandemic WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2D24A2E624D8C173004CF24C /* InterfaceController.swift */,
+				2D24A2E824D8C173004CF24C /* ExtensionDelegate.swift */,
+				2D24A2EA24D8C173004CF24C /* NotificationController.swift */,
+				2D24A2EC24D8C174004CF24C /* Assets.xcassets */,
+				2D24A2EE24D8C174004CF24C /* Info.plist */,
+				2D24A2EF24D8C174004CF24C /* PushNotificationPayload.apns */,
+			);
+			path = "WatchPandemic WatchKit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D24A2BF24D8C16F004CF24C /* WatchPandemic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D24A2FA24D8C174004CF24C /* Build configuration list for PBXNativeTarget "WatchPandemic" */;
+			buildPhases = (
+				2D24A2BC24D8C16F004CF24C /* Sources */,
+				2D24A2BD24D8C16F004CF24C /* Frameworks */,
+				2D24A2BE24D8C16F004CF24C /* Resources */,
+				2D24A2F924D8C174004CF24C /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D24A2D524D8C173004CF24C /* PBXTargetDependency */,
+			);
+			name = WatchPandemic;
+			productName = WatchPandemic;
+			productReference = 2D24A2C024D8C16F004CF24C /* WatchPandemic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2D24A2D124D8C173004CF24C /* WatchPandemic WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D24A2F624D8C174004CF24C /* Build configuration list for PBXNativeTarget "WatchPandemic WatchKit App" */;
+			buildPhases = (
+				2D24A2D024D8C173004CF24C /* Resources */,
+				2D24A2F524D8C174004CF24C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D24A2E424D8C173004CF24C /* PBXTargetDependency */,
+			);
+			name = "WatchPandemic WatchKit App";
+			productName = "WatchPandemic WatchKit App";
+			productReference = 2D24A2D224D8C173004CF24C /* WatchPandemic WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		2D24A2E024D8C173004CF24C /* WatchPandemic WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D24A2F224D8C174004CF24C /* Build configuration list for PBXNativeTarget "WatchPandemic WatchKit Extension" */;
+			buildPhases = (
+				2D24A2DD24D8C173004CF24C /* Sources */,
+				2D24A2DE24D8C173004CF24C /* Frameworks */,
+				2D24A2DF24D8C173004CF24C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchPandemic WatchKit Extension";
+			productName = "WatchPandemic WatchKit Extension";
+			productReference = 2D24A2E124D8C173004CF24C /* WatchPandemic WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D24A2B824D8C16F004CF24C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Sirat Samyoun";
+				TargetAttributes = {
+					2D24A2BF24D8C16F004CF24C = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D24A2D124D8C173004CF24C = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D24A2E024D8C173004CF24C = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = 2D24A2BB24D8C16F004CF24C /* Build configuration list for PBXProject "WatchPandemic" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D24A2B724D8C16F004CF24C;
+			productRefGroup = 2D24A2C124D8C16F004CF24C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D24A2BF24D8C16F004CF24C /* WatchPandemic */,
+				2D24A2D124D8C173004CF24C /* WatchPandemic WatchKit App */,
+				2D24A2E024D8C173004CF24C /* WatchPandemic WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D24A2BE24D8C16F004CF24C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D24A2CE24D8C172004CF24C /* LaunchScreen.storyboard in Resources */,
+				2D24A2CB24D8C172004CF24C /* Assets.xcassets in Resources */,
+				2D24A2C924D8C16F004CF24C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D24A2D024D8C173004CF24C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D24A2DB24D8C173004CF24C /* Assets.xcassets in Resources */,
+				2D24A2D924D8C173004CF24C /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D24A2DF24D8C173004CF24C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D24A2ED24D8C174004CF24C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D24A2BC24D8C16F004CF24C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D24A2C624D8C16F004CF24C /* ViewController.swift in Sources */,
+				2D24A2C424D8C16F004CF24C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D24A2DD24D8C173004CF24C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D24A2EB24D8C173004CF24C /* NotificationController.swift in Sources */,
+				2D24A2E924D8C173004CF24C /* ExtensionDelegate.swift in Sources */,
+				2D24A2E724D8C173004CF24C /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2D24A2D524D8C173004CF24C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D24A2D124D8C173004CF24C /* WatchPandemic WatchKit App */;
+			targetProxy = 2D24A2D424D8C173004CF24C /* PBXContainerItemProxy */;
+		};
+		2D24A2E424D8C173004CF24C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D24A2E024D8C173004CF24C /* WatchPandemic WatchKit Extension */;
+			targetProxy = 2D24A2E324D8C173004CF24C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2D24A2C724D8C16F004CF24C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D24A2C824D8C16F004CF24C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2D24A2CC24D8C172004CF24C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D24A2CD24D8C172004CF24C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2D24A2D724D8C173004CF24C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D24A2D824D8C173004CF24C /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D24A2F024D8C174004CF24C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2D24A2F124D8C174004CF24C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D24A2F324D8C174004CF24C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26WZ8ZNC53;
+				INFOPLIST_FILE = "WatchPandemic WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.virginia.edu.WatchPandemic.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.3;
+			};
+			name = Debug;
+		};
+		2D24A2F424D8C174004CF24C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26WZ8ZNC53;
+				INFOPLIST_FILE = "WatchPandemic WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.virginia.edu.WatchPandemic.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.3;
+			};
+			name = Release;
+		};
+		2D24A2F724D8C174004CF24C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26WZ8ZNC53;
+				IBSC_MODULE = WatchPandemic_WatchKit_Extension;
+				INFOPLIST_FILE = "WatchPandemic WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.virginia.edu.WatchPandemic.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.3;
+			};
+			name = Debug;
+		};
+		2D24A2F824D8C174004CF24C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26WZ8ZNC53;
+				IBSC_MODULE = WatchPandemic_WatchKit_Extension;
+				INFOPLIST_FILE = "WatchPandemic WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.virginia.edu.WatchPandemic.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.3;
+			};
+			name = Release;
+		};
+		2D24A2FB24D8C174004CF24C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26WZ8ZNC53;
+				INFOPLIST_FILE = WatchPandemic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.virginia.edu.WatchPandemic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2D24A2FC24D8C174004CF24C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26WZ8ZNC53;
+				INFOPLIST_FILE = WatchPandemic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.virginia.edu.WatchPandemic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D24A2BB24D8C16F004CF24C /* Build configuration list for PBXProject "WatchPandemic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D24A2F024D8C174004CF24C /* Debug */,
+				2D24A2F124D8C174004CF24C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D24A2F224D8C174004CF24C /* Build configuration list for PBXNativeTarget "WatchPandemic WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D24A2F324D8C174004CF24C /* Debug */,
+				2D24A2F424D8C174004CF24C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D24A2F624D8C174004CF24C /* Build configuration list for PBXNativeTarget "WatchPandemic WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D24A2F724D8C174004CF24C /* Debug */,
+				2D24A2F824D8C174004CF24C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D24A2FA24D8C174004CF24C /* Build configuration list for PBXNativeTarget "WatchPandemic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D24A2FB24D8C174004CF24C /* Debug */,
+				2D24A2FC24D8C174004CF24C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D24A2B824D8C16F004CF24C /* Project object */;
+}
