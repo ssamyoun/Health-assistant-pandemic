@@ -39,27 +39,38 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
     }
     
     @IBAction func actionwashHands() {
+        hwStartTime = Double(Date().millisecondsSince1970/1000)
+        startCollectIMU()
     }
     
     @IBAction func actionStopWashing() {
-    }
-
-    @IBAction func menuNotify() {
-        let randomRegularActivityId = Int.random(in: 1...3)
-        setaReminderAfter(seconds: testNotifyAfterSec, activityId: randomRegularActivityId)
+        WKInterfaceDevice.current().play(.success)
+        WKInterfaceDevice.current().play(.click)
+        hwEndTime = Double(Date().millisecondsSince1970/1000)
+        workoutManager.stopWorkout()
+        getDataAndProcessInModel()
+        callformalAndFeedback()
     }
     
-    @IBAction func menuTalk() {
+    
+    @IBAction func actionBtnInteract() {
         InitiateDictation(textChoices: [])
     }
     
-    @IBAction func menuScan() {
-        startBeaconSensingAndRemind()
+    @IBAction func menuInteract() {
+        InitiateDictation(textChoices: [])
     }
     
-    @IBAction func menuStopScan() {
-        beaconSensingTimer?.invalidate()
-        centralManager.stopScan()
+    @IBAction func Scan() {
+        if(beaconSensingTimer == nil){
+             startBeaconSensingAndRemind()
+        }
+        else{
+            
+            beaconSensingTimer?.invalidate()
+            beaconSensingTimer = nil
+            centralManager.stopScan()
+        }
     }
     
     @IBOutlet var activityTable: WKInterfaceTable!
@@ -71,7 +82,7 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
     
     let remindlaterDefaultMinutes: Int = 5
     //public var noResponseRepeatMins: Int = 3
-    let testNotifyAfterSec: Int = 2
+    let testNotifyAfterSec: Int = 5
     //public var PatientId: Int = 3001
     
     var currentReminder: NSMutableDictionary?
@@ -124,25 +135,25 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
     var remindedMask:Bool = false
     
     struct CovidInfo: Codable {
-        var dailycases: Int
-        var totalcases: Int
+        var statedaily: Int
+        var statetotal: Int
         var usadaily: Int
         var usatotal: Int
         var cdc: String
     }
     
     var covidInfoDownloaded: Bool = false
-    var covidTracker: CovidInfo = CovidInfo(dailycases: 0, totalcases: 0, usadaily:0 , usatotal:0, cdc:"")
+    var covidTracker: CovidInfo = CovidInfo(statedaily: 0, statetotal: 0, usadaily:0 , usatotal:0, cdc:"")
     
    //------------ //view parts
     
     func switchView(activityListShow: Bool){
-        notifyingActivityTitle.setHidden(!activityListShow)
-        notifyingActivityImage.setHidden(!activityListShow)
+        notifyingActivityTitle.setHidden(activityListShow)
+        notifyingActivityImage.setHidden(activityListShow)
         
-        activityTable.setHidden(activityListShow)
-        btnStartWash.setHidden(activityListShow)
-        btnStopWash.setHidden(activityListShow)
+        activityTable.setHidden(!activityListShow)
+        btnStartWash.setHidden(!activityListShow)
+        btnStopWash.setHidden(!activityListShow)
     }
     
     func loadAllActivitiesIntoView(){
@@ -150,7 +161,8 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
         var index: Int = 0
         for item in AllReminders.getAllRegularReminders().values{
             let row = activityTable.rowController(at: index) as! ActivityList
-            let txt = (item["time"] as! String) + " " + (item["display_text"] as! String)
+            row.activityId = (item["id"] as? Int)!
+            let txt = (item["display_text"] as! String)
             row.activityBtn.setTitle(txt)
             //row.activityBtn.setValue(1, forKey: "activityId")
             index = index + 1
@@ -172,6 +184,7 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
         
         let task = URLSession.shared.dataTask(with: request) {
             data, response, error in
@@ -179,8 +192,8 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: [])
                     if let object = json as? [String: Any] {
-                        self.covidTracker.dailycases = object["positiveIncrease"] as! Int
-                        self.covidTracker.totalcases = object["positive"] as! Int
+                        self.covidTracker.statedaily = object["positiveIncrease"] as! Int
+                        self.covidTracker.statetotal = object["positive"] as! Int
                     }
                     else if let object = json as? [Any] {
                         for anItem in object as! [Dictionary<String, AnyObject>] {
@@ -202,15 +215,51 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
         completionHandler([.sound,.alert])
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {//clicked
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {//clicked
+////        let userInfo = response.notification.request.content.userInfo
+////        if (userInfo != nil){
+////            currentActivityId = (userInfo["id"] as? Int)!
+////            currentReminder = AllReminders.getSpecificReminder(activityId: currentActivityId)
+////            do {
+////                UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+////            } catch {
+////            }
+////            loadNotifyingActivityInView()
+////        }
+//        completionHandler()
+//    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        currentActivityId = (userInfo["id"] as? Int)!
-        currentReminder = AllReminders.getSpecificReminder(activityId: currentActivityId)
-        do {
-            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-        } catch {
+
+        if let customData = userInfo["id"] as? Int {
+            currentActivityId = customData
+            currentReminder = AllReminders.getSpecificReminder(activityId: currentActivityId)
+            
+            switch response.actionIdentifier {
+            case UNNotificationDefaultActionIdentifier:
+                // the user swiped to unlock
+                print("Default identifier")
+                loadNotifyingActivityInView()
+                
+            case "show":
+                // the user tapped our "show more info…" button
+                print("Show more information…")
+                loadNotifyingActivityInView()
+                break
+                
+            default:
+                break
+            }
         }
+        
+        // you must call the completion handler when you're done
         completionHandler()
+    }
+    
+    public func setCurrentActivityAndNotifyUser(activityId: Int){
+        currentActivityId = activityId
+        currentReminder = AllReminders.getSpecificReminder(activityId: currentActivityId)
         loadNotifyingActivityInView()
     }
     
@@ -278,7 +327,8 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
                 print("Launch Notification Error: \(error?.localizedDescription)")
             }
         }
-        let notificationCategory = UNNotificationCategory(identifier: "activity.category", actions: [], intentIdentifiers: [], options: [])
+        let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
+        let notificationCategory = UNNotificationCategory(identifier: "activity.category", actions: [show], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([notificationCategory])
     }
 
@@ -539,9 +589,9 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
                 {
                     utterSentence(line: "Ok. Press the crown to go to Apps, tap on the ECG app, and follow the instructions.")
                 } else if (responseStr.contains("thank")){
-                    utterSentence(line: "You are welcome.");
+                    utterSentence(line: "You are welcome.")
                 } else{
-                    utterSentence(line: "Ok. Thank you.");
+                    utterSentence(line: "Ok. Thank you.")
                 }
             }
             else if (responseStr.contains("remind")) {
@@ -567,7 +617,8 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
                             let mins: Int = Int(wordsArr[indexOfMin])!
                             utterSentence(line: "Ok. Remind you after \(mins) minutes");
                             setaReminderAfter(seconds: mins*60, activityId: currentActivityId)
-                        } else{
+                        }
+                        else{
                             let mins: Int = HelperMethods.wordToNumber(word: wordsArr[indexOfMin])//2  //extensiveLater
                             utterSentence(line: "Ok. Remind you after \(mins) minutes");
                             setaReminderAfter(seconds: mins*60, activityId: currentActivityId)
@@ -578,9 +629,9 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
                     utterSentence(line: "You are welcome.")
                 }
             }
-            else if (responseStr.contains("pandemic") || responseStr.contains("cases")){
+            else if (responseStr.contains("pandemic") || responseStr.contains("cases") || responseStr.contains("coronavirus")){
                 var pstr = ""
-                if (responseStr.contains("United States") || responseStr.contains("USA")){
+                if (responseStr.contains("united states") || responseStr.contains("usa")){
                     if (responseStr.contains("new")){
                         pstr = "Today there are " + String(covidTracker.usadaily) + " new cases in the United States"
                     }
@@ -591,14 +642,15 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
                         pstr = "As of today, In the United States, there are total " + String(covidTracker.usatotal) + " cases, and " + String(covidTracker.usadaily) + " new cases"
                     }
                 }
-                else { //if (responseStr.contains("around")){
+                else if (responseStr.contains("virginia")){
                     if (responseStr.contains("new")){
-                        pstr = "Today there are " + String(covidTracker.dailycases) + " new cases in Virginia"
+                        pstr = "Today there are " + String(covidTracker.statedaily) + " new cases in Virginia"
                     }
                     else if (responseStr.contains("total")){
-                        pstr = "As of today, there are total " + String(covidTracker.totalcases) + " cases in Virginia"
-                    } else {
-                        pstr = "As of today, In Virginia, there are total " + String(covidTracker.totalcases) + " cases, and " + String(covidTracker.dailycases) + " new cases"
+                        pstr = "As of today, there are total " + String(covidTracker.statetotal) + " cases in Virginia"
+                    }
+                    else {
+                        pstr = "As of today, In Virginia, there are total " + String(covidTracker.statetotal) + " cases, and " + String(covidTracker.statedaily) + " new cases"
                     }
                 }
                 utterSentence(line: pstr)
@@ -606,13 +658,19 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
 //            else if (responseStr.contains("CDC") || responseStr.contains("recommendations")){
 //                utterSentence(line: "Currently CDC recommends to avoid close contact, clean your hands often, cover coughs and sneezes, stay home if you are sick")
 //            }
+            else if (responseStr.contains("feeling")){
+                if (responseStr.contains("not") && (responseStr.contains("great") || responseStr.contains("good") || responseStr.contains("well"))){
+                     utterSentence(line: "Try some exercise at home, or talk to your family and friends, or try preparing some healthy foods")
+                }
+                else{
+                    utterSentence(line: "Great. Thank you.")
+                }
+            }
             else if (responseStr.contains("thank")){
-                conversationFinished = true
-                utterSentence(line: "You are welcome.")
+                utterSentence(line: "You are welcome. By the way, how are you feeling today?")
             }
             else if(responseStr.contains("ok")||responseStr.contains("ll do") || responseStr.contains("ll check") || responseStr.contains("ll take")){
-                conversationFinished = true
-                utterSentence(line: "Ok. Thank you.")
+                utterSentence(line: "Ok. Thank you. By the way, how are you feeling today?")
             }
             else{
                 //said other than keywords, what now?

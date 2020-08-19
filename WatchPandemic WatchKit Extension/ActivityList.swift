@@ -12,11 +12,12 @@ import WatchKit
 
 class ActivityList: NSObject {
     
+    var activityId: Int = 0
     @IBOutlet weak var activityBtn: WKInterfaceButton!
     @IBAction func activityClick() {
-        //let activityId: Int = activityBtn!.value(forKey: "activityId") as! Int
         let iDelegate = WKExtension.shared().rootInterfaceController as! InterfaceController
-        iDelegate.setaReminderAfter(seconds: 2, activityId: 2)
+        iDelegate.setaReminderAfter(seconds: 5, activityId: activityId)
+        //iDelegate.setCurrentActivityAndNotifyUser(activityId: activityId)
     }
     
     

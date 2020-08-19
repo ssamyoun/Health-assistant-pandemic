@@ -34,11 +34,19 @@ class NotificationController: WKUserNotificationInterfaceController {
         super.didDeactivate()
     }
 
-    override func didReceive(_ notification: UNNotification) {
+    override func didReceive(_ notification: UNNotification, withCompletion completionHandler: @escaping (WKUserNotificationInterfaceType) -> Swift.Void) {
         let content = notification.request.content
         titleLbl.setText(content.title)
         subtitleLbl.setText(content.subtitle)
         bodyLbl.setText(content.body)
+        
+//        let userInfo = content.userInfo
+//        if (userInfo != nil){
+//            let activityId = (userInfo["id"] as? Int)!
+//            let iDelegate = WKExtension.shared().rootInterfaceController as! InterfaceController
+//            iDelegate.setCurrentActivityAndNotifyUser(activityId: activityId)
+//        }
+        completionHandler(.custom)
     }
 }
 
