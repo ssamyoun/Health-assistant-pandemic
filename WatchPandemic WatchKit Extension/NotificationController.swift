@@ -12,7 +12,11 @@ import UserNotifications
 
 
 class NotificationController: WKUserNotificationInterfaceController {
-
+    
+    @IBOutlet weak var titleLbl: WKInterfaceLabel!
+    @IBOutlet weak var subtitleLbl: WKInterfaceLabel!
+    @IBOutlet weak var bodyLbl: WKInterfaceLabel!
+    
     override init() {
         // Initialize variables here.
         super.init()
@@ -31,8 +35,10 @@ class NotificationController: WKUserNotificationInterfaceController {
     }
 
     override func didReceive(_ notification: UNNotification) {
-        // This method is called when a notification needs to be presented.
-        // Implement it if you use a dynamic notification interface.
-        // Populate your dynamic notification interface as quickly as possible.
+        let content = notification.request.content
+        titleLbl.setText(content.title)
+        subtitleLbl.setText(content.subtitle)
+        bodyLbl.setText(content.body)
     }
 }
+

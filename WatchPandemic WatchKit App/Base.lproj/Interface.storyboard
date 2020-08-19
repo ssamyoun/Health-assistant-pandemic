@@ -1,16 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14256" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch44" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14243"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14219"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchPandemic_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="CNw-im-wye">
+                            <items>
+                                <tableRow identifier="ActivityList" id="6yw-Mc-PAo" customClass="ActivityList" customModule="WatchPandemic_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="9zW-Ui-ePx">
+                                        <items>
+                                            <button alignment="center" verticalAlignment="center" title="Activity1" id="NQI-Wc-ePe">
+                                                <connections>
+                                                    <action selector="activityClick" destination="6yw-Mc-PAo" id="2Bm-Zl-mUx"/>
+                                                </connections>
+                                            </button>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="activityBtn" destination="NQI-Wc-ePe" id="wd2-ZS-fk6"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <group width="1" alignment="left" id="xKl-P0-2O3">
+                            <items>
+                                <button width="87" height="24" alignment="left" title="Wash" id="XtN-5V-mxD">
+                                    <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="actionwashHands" destination="AgC-eL-Hgc" id="fbH-pb-uU8"/>
+                                    </connections>
+                                </button>
+                                <button width="89" height="22" alignment="left" title="End" id="uOd-ce-FD3">
+                                    <color key="backgroundColor" red="0.79618685229999997" green="0.42414712459999998" blue="0.21918949660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <connections>
+                                        <action selector="actionStopWashing" destination="AgC-eL-Hgc" id="Kia-mW-Wa2"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <label width="136" height="19" alignment="center" text="Activity1" textAlignment="center" minimumScaleFactor="0.59999999999999998" id="86g-lH-ns8"/>
+                        <imageView width="136" height="113" alignment="center" image="logo-exercise" contentMode="scaleAspectFit" id="Zrf-2d-Ztf"/>
+                    </items>
+                    <menu key="menu" id="dhI-cI-Tkh">
+                        <items>
+                            <menuItem title="Notify" icon="play" id="Irc-sc-bmN">
+                                <connections>
+                                    <action selector="menuNotify" destination="AgC-eL-Hgc" id="r57-04-7zh"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Talk" icon="play" id="Itc-sc-bmN">
+                                <connections>
+                                    <action selector="menuTalk" destination="AgC-eL-Hgc" id="t57-04-7zh"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Scan" id="lkN-13-DX0">
+                                <connections>
+                                    <action selector="menuScan" destination="AgC-eL-Hgc" id="agI-UI-P2P"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Stop" id="eIf-WB-Fba">
+                                <connections>
+                                    <action selector="menuStopScan" destination="AgC-eL-Hgc" id="jEx-SI-8CO"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="activityTable" destination="CNw-im-wye" id="Rlk-fv-5rg"/>
+                        <outlet property="btnStartWash" destination="XtN-5V-mxD" id="iy7-eA-ROF"/>
+                        <outlet property="btnStopWash" destination="uOd-ce-FD3" id="7Gu-e8-Vu1"/>
+                        <outlet property="notifyingActivityImage" destination="Zrf-2d-Ztf" id="Sd7-tY-7Qe"/>
+                        <outlet property="notifyingActivityTitle" destination="86g-lH-ns8" id="NEY-Cq-yNs"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="219.52173913043478" y="337.72321428571428"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -19,10 +93,9 @@
                     <items>
                         <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <notificationCategory key="notificationCategory" identifier="activity.category" id="JfB-70-Muf"/>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
-                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
                         <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
                     </connections>
                 </notificationController>
@@ -30,18 +103,31 @@
             <point key="canvasLocation" x="220" y="643"/>
         </scene>
         <!--Notification Controller-->
-        <scene sceneID="ZPc-GJ-vnh">
-            <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="468" y="643"/>
-        </scene>
-        <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
-                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="WatchPandemic_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" text="&lt;Title&gt;" id="7r6-qc-ehw">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label alignment="left" text="&lt;subtitle&gt;" id="2YP-2g-7KF">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                        </label>
+                        <label alignment="left" text="&lt;body&gt;" id="XNQ-3o-zhK">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
+                    </items>
+                    <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="bodyLbl" destination="XNQ-3o-zhK" id="3ry-1O-e3G"/>
+                        <outlet property="subtitleLbl" destination="2YP-2g-7KF" id="XFb-Zo-NhZ"/>
+                        <outlet property="titleLbl" destination="7r6-qc-ehw" id="cW3-6C-Q7d"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="468" y="345"/>
+            <point key="canvasLocation" x="432" y="642"/>
         </scene>
     </scenes>
 </document>

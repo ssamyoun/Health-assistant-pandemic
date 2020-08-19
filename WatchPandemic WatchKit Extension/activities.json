@@ -1,0 +1,57 @@
+{
+    "regular": [
+        {
+            "time": "10:30:00",
+            "id": 1,
+            "display_text": "Medication time",
+            "image": "logo-pill.png",
+            "query": "It's time to take your morning medications. Take all medications as directed by your physician",
+            "requery": "Did you take your morning medications?",
+            "details": "Amlodipine, Aspirin, Atorvastatin, Hydrochlorothiazide, Levothyroxine, Losartan and Aldactone",
+        },
+        {
+            "time": "13:00:00",
+            "id": 2,
+            "display_text": "Exercise time",
+            "image": "logo-exercise.png",
+            "query": "It is time to perform your home exercise program.",
+            "requery": "Did you perform your exercise routine that you were supposed to do at 1 PM?",
+            "details": "Perform your exercise routine as described by your physical therapist.",
+        },
+        {
+            "time": "15:00:00",
+            "id": 3,
+            "display_text": "Heart-Monitor",
+            "image": "logo-heartmonitor.png",
+            "query": "It's the time to do an ECG. Do you want to try it now?",
+            "requery": "Did you do the ECG that you were supposed to do at 3 PM?",
+            "details": "Press the crown twice to go to Apps, tap on the ECG app, and follow the instructions.",
+        }
+    ],
+    "contextual": [
+        {
+            "id": 4,
+            "display_text": "Handwashing time",
+            "image": "logo-handwash.png",
+            "query": "It's time to wash your hands.",
+            "requery": "Did you wash your hands?",
+            "details": "Follow the guidelines by World Health Organization"
+        },
+        {
+            "id": 5,
+            "display_text": "Wear Masks",
+            "image": "logo-mask.png",
+            "query": "Don't forget to wear your masks when going outside.",
+            "requery": "Did you wear your masks?",
+            "details": "Follow the guidelines from CDC."
+        },
+        {
+            "id": 6,
+            "display_text": "In-home activities",
+            "image": "logo-exercise.png",
+            "query": "How are you feeling today?",
+            "requery": "Did you try some in-home activities?",
+            "details": "Try some exercise at home, or talk to your family and friends, or try preparing some healthy foods"
+        }
+    ]
+}
