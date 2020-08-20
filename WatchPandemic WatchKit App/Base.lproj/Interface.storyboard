@@ -37,19 +37,19 @@
                                 <button width="48" height="25" alignment="left" title="Talk" id="Ipz-hP-TLj">
                                     <color key="backgroundColor" red="0.1589495199" green="0.48761334200000001" blue="0.0093126037269999993" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <connections>
-                                        <action selector="actionBtnInteract" destination="AgC-eL-Hgc" id="ELg-Xy-sLm"/>
+                                        <action selector="actionTalk" destination="AgC-eL-Hgc" id="CIa-Zr-6wy"/>
                                     </connections>
                                 </button>
-                                <button width="65" height="24" alignment="left" title="Wash" id="XtN-5V-mxD">
+                                <button width="65" height="24" alignment="left" title="Scan" id="XtN-5V-mxD">
                                     <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
-                                        <action selector="actionwashHands" destination="AgC-eL-Hgc" id="fbH-pb-uU8"/>
+                                        <action selector="actionScanBeacons" destination="AgC-eL-Hgc" id="tup-la-ftA"/>
                                     </connections>
                                 </button>
-                                <button width="68" height="24" alignment="left" title="End" id="uOd-ce-FD3">
+                                <button width="68" height="24" alignment="left" title="Wash" id="uOd-ce-FD3">
                                     <color key="backgroundColor" red="0.79618685229999997" green="0.42414712459999998" blue="0.21918949660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <connections>
-                                        <action selector="actionStopWashing" destination="AgC-eL-Hgc" id="Kia-mW-Wa2"/>
+                                        <action selector="actionWashHands" destination="AgC-eL-Hgc" id="vkj-kY-IkP"/>
                                     </connections>
                                 </button>
                             </items>
@@ -57,24 +57,11 @@
                         <label width="136" height="19" alignment="center" text="Activity1" textAlignment="center" minimumScaleFactor="0.59999999999999998" id="86g-lH-ns8"/>
                         <imageView width="136" height="113" alignment="center" image="logo-exercise" contentMode="scaleAspectFit" id="Zrf-2d-Ztf"/>
                     </items>
-                    <menu key="menu" id="dhI-cI-Tkh">
-                        <items>
-                            <menuItem title="Talk" id="SyB-QO-Ea6">
-                                <connections>
-                                    <action selector="menuInteract" destination="AgC-eL-Hgc" id="tqj-Gj-cNx"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Beacon" id="OqV-dk-tB8">
-                                <connections>
-                                    <action selector="Scan" destination="AgC-eL-Hgc" id="J5R-am-gt9"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
                     <connections>
                         <outlet property="activityTable" destination="CNw-im-wye" id="Rlk-fv-5rg"/>
-                        <outlet property="btnStartWash" destination="XtN-5V-mxD" id="iy7-eA-ROF"/>
-                        <outlet property="btnStopWash" destination="uOd-ce-FD3" id="7Gu-e8-Vu1"/>
+                        <outlet property="btnScanBeacons" destination="XtN-5V-mxD" id="Cnu-8f-Izk"/>
+                        <outlet property="btnTalkToCogAssistant" destination="Ipz-hP-TLj" id="Dqc-1C-x4N"/>
+                        <outlet property="btnWashHands" destination="uOd-ce-FD3" id="gQw-Bi-wGF"/>
                         <outlet property="notifyingActivityImage" destination="Zrf-2d-Ztf" id="Sd7-tY-7Qe"/>
                         <outlet property="notifyingActivityTitle" destination="86g-lH-ns8" id="NEY-Cq-yNs"/>
                     </connections>

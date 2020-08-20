@@ -38,47 +38,55 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
         super.didDeactivate()
     }
     
-    @IBAction func actionwashHands() {
-        hwStartTime = Double(Date().millisecondsSince1970/1000)
-        startCollectIMU()
-    }
     
-    @IBAction func actionStopWashing() {
-        WKInterfaceDevice.current().play(.success)
-        WKInterfaceDevice.current().play(.click)
-        hwEndTime = Double(Date().millisecondsSince1970/1000)
-        workoutManager.stopWorkout()
-        getDataAndProcessInModel()
-        callformalAndFeedback()
-    }
+    @IBOutlet weak var btnScanBeacons: WKInterfaceButton!
+    @IBOutlet weak var btnWashHands: WKInterfaceButton!
+    @IBOutlet weak var btnTalkToCogAssistant: WKInterfaceButton!
     
+    var scanStarted: Bool = false
+    var washStarted: Bool = false
     
-    @IBAction func actionBtnInteract() {
-        InitiateDictation(textChoices: [])
-    }
-    
-    @IBAction func menuInteract() {
-        InitiateDictation(textChoices: [])
-    }
-    
-    @IBAction func Scan() {
-        if(beaconSensingTimer == nil){
-             startBeaconSensingAndRemind()
+    @IBAction func actionScanBeacons() {
+        if(scanStarted){
+            btnScanBeacons.setTitle("Scanned")
+            scanStarted = false
+            startBeaconSensingAndRemind()
         }
         else{
-            
+            btnScanBeacons.setTitle("Scann")
+            scanStarted = true
             beaconSensingTimer?.invalidate()
             beaconSensingTimer = nil
             centralManager.stopScan()
         }
     }
     
+    @IBAction func actionWashHands() {
+        if(washStarted){
+            btnWashHands.setTitle("Washed")
+            washStarted = false
+            hwStartTime = Double(Date().millisecondsSince1970/1000)
+            startCollectIMU()
+        }
+        else{
+            btnWashHands.setTitle("Wash")
+            washStarted = true
+            WKInterfaceDevice.current().play(.success)
+            WKInterfaceDevice.current().play(.click)
+            hwEndTime = Double(Date().millisecondsSince1970/1000)
+            workoutManager.stopWorkout()
+            getDataAndProcessInModel()
+            callformalAndFeedback()
+        }
+    }
+    
+    @IBAction func actionTalk() {
+        InitiateDictation(textChoices: [])
+    }
+    
     @IBOutlet var activityTable: WKInterfaceTable!
     @IBOutlet var notifyingActivityTitle: WKInterfaceLabel!
     @IBOutlet var notifyingActivityImage: WKInterfaceImage!
-
-    @IBOutlet weak var btnStartWash: WKInterfaceButton!
-    @IBOutlet weak var btnStopWash: WKInterfaceButton!
     
     let remindlaterDefaultMinutes: Int = 5
     //public var noResponseRepeatMins: Int = 3
@@ -152,8 +160,9 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
         notifyingActivityImage.setHidden(activityListShow)
         
         activityTable.setHidden(!activityListShow)
-        btnStartWash.setHidden(!activityListShow)
-        btnStopWash.setHidden(!activityListShow)
+        btnWashHands.setHidden(!activityListShow)
+        btnScanBeacons.setHidden(!activityListShow)
+        btnTalkToCogAssistant.setHidden(!activityListShow)
     }
     
     func loadAllActivitiesIntoView(){
@@ -215,19 +224,6 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
         completionHandler([.sound,.alert])
     }
     
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {//clicked
-////        let userInfo = response.notification.request.content.userInfo
-////        if (userInfo != nil){
-////            currentActivityId = (userInfo["id"] as? Int)!
-////            currentReminder = AllReminders.getSpecificReminder(activityId: currentActivityId)
-////            do {
-////                UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-////            } catch {
-////            }
-////            loadNotifyingActivityInView()
-////        }
-//        completionHandler()
-//    }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
@@ -235,25 +231,8 @@ class InterfaceController: WKInterfaceController,UNUserNotificationCenterDelegat
         if let customData = userInfo["id"] as? Int {
             currentActivityId = customData
             currentReminder = AllReminders.getSpecificReminder(activityId: currentActivityId)
-            
-            switch response.actionIdentifier {
-            case UNNotificationDefaultActionIdentifier:
-                // the user swiped to unlock
-                print("Default identifier")
-                loadNotifyingActivityInView()
-                
-            case "show":
-                // the user tapped our "show more info…" button
-                print("Show more information…")
-                loadNotifyingActivityInView()
-                break
-                
-            default:
-                break
-            }
+            loadNotifyingActivityInView()
         }
-        
-        // you must call the completion handler when you're done
         completionHandler()
     }
     
